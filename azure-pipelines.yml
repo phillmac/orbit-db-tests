@@ -4,7 +4,7 @@
 # https://aka.ms/yaml
 
 trigger:
-- master
+- *
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -15,11 +15,9 @@ steps:
     dockerVersion: '17.09.0-ce'
 
 - script: |
-    docker build . -t orbitdb/orbit-db-tests
+    docker build . -t orbitdb/orbit-db-tests --build-arg "SOURCE_BRANCH=$(Build.SourceBranchName)"
   displayName: 'Build OrbitDB test image'
 
 - script: |
-    docker run \
-    --net host \
-    orbitdb/orbit-db-tests
+    docker run orbitdb/orbit-db-tests
   displayName: 'Run OrbitDB tests'
