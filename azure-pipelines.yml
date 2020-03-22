@@ -15,11 +15,11 @@ steps:
     dockerVersion: '17.09.0-ce'
 
 - script: |
-    docker build . -t orbitdb/orbit-db-tests \
-  displayName: 'Build orbitDB test image'
+    docker build . -t orbitdb/orbit-db-tests
+  displayName: 'Build OrbitDB test image'
 
 - script: |
     docker run \
     --net host \
     orbitdb/orbit-db-tests
-  displayName: 'Run orbitDB test'
+  displayName: 'Run OrbitDB tests'
