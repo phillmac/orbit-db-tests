@@ -22,4 +22,4 @@ steps:
 
 - script: |
     docker run orbitdb/orbit-db-tests
-  displayName: 'Run OrbitDB tests'
+displayName: 'Build OrbitDB test image'
